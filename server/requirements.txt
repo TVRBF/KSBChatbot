@@ -10,3 +10,5 @@ requests
 librosa
 numpy
 scikit-learn
+email-validator
+
