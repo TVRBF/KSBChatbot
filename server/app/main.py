@@ -7,21 +7,28 @@ app = FastAPI(title="KSM Chatbot API", version="0.1.0")
 # Include STT router first (optional order)
 app.include_router(stt.router)
 
-# CORS configuration for development
+# ==============================
+# CORS FOR PRODUCTION
+# ==============================
+
 origins = [
-    "http://127.0.0.1:5500",  # your frontend dev server
-    "http://localhost:5500",   # fallback for localhost
+    "https://ksbchatbot.netlify.app",  # your frontend URL (NO SLASH)
+    "http://127.0.0.1:5500",           # local development
+    "http://localhost:5500"            # local development fallback
 ]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,  # allow only your frontend origins
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
+# ==============================
 # Include other routers
+# ==============================
+
 app.include_router(auth.router)
 app.include_router(chat.router)
 app.include_router(emotion.router)
