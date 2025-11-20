@@ -11,4 +11,4 @@ librosa
 numpy
 scikit-learn
 email-validator
-
+python-multipart
