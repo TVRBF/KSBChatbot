@@ -1,0 +1,12 @@
+fastapi
+uvicorn[standard]
+python-jose
+passlib[bcrypt]
+pymongo
+motor
+python-dotenv
+aiohttp
+requests
+librosa
+numpy
+scikit-learn
